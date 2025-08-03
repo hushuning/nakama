@@ -135,6 +135,12 @@ func main() {
 	}
 
 	config := server.ParseArgs(tmpLogger, os.Args)
+	// args := []string{
+	// 	"--database.address=postgres:localdb@localhost:5432/nakama",
+	// 	"--logger.level=DEBUG",
+	// }
+	// config := server.ParseArgs(tmpLogger, args)
+
 	logger, startupLogger := server.SetupLogging(tmpLogger, config)
 	configWarnings := server.ValidateConfig(logger, config)
 

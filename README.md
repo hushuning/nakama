@@ -1,3 +1,4 @@
+ go run . --database.address postgres:localdb@localhost:5432/nakama --logger.level DEBUG
 ![Nakama](.github/logo.png?raw=true "Nakama logo")
 ======
 
