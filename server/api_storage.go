@@ -19,6 +19,8 @@ import (
 	"context"
 	"encoding/json"
 
+	"fmt"
+
 	"github.com/gofrs/uuid/v5"
 	"github.com/heroiclabs/nakama-common/api"
 	"go.uber.org/zap"
@@ -181,7 +183,32 @@ func (s *ApiServer) WriteStorageObjects(ctx context.Context, in *api.WriteStorag
 	if in.GetObjects() == nil || len(in.GetObjects()) == 0 {
 		return &api.StorageObjectAcks{}, nil
 	}
-
+	//查询数据库，若数据库里已经存在hero，则不能继续
+	for _, object := range in.GetObjects() {
+		//控制新建英雄只能创建一次
+		fmt.Printf("object哈哈: %v\n", object)
+		fmt.Printf(object.Collection)
+		if object.GetCollection() == "newHero" {
+			// 查询数据库是否已存在该 key
+			fmt.Printf("到了%v\n", object.GetKey())
+			objectIDs := []*api.ReadStorageObjectId{
+				{
+					Collection: "newHero",
+					Key:        object.GetKey(),
+					UserId:     "00000000-0000-0000-0000-000000000000", // 或 ""，根据你的业务
+				},
+			}
+			objects, err := StorageReadObjects(ctx, s.logger, s.db, uuid.Nil, objectIDs)
+			fmt.Printf("%v\n", objects)
+			if err != nil {
+				return nil, status.Error(codes.Internal, "Error checking hero existence.")
+			}
+			if len(objects.Objects) > 0 {
+				return nil, status.Error(codes.AlreadyExists, "Hero already created.")
+			}
+		}
+		// ...其他校验...
+	}
 	for _, object := range in.GetObjects() {
 		if object.GetCollection() == "" || object.GetKey() == "" || object.GetValue() == "" {
 			return nil, status.Error(codes.InvalidArgument, "Invalid collection or key value supplied. They must be set.")
@@ -209,7 +236,7 @@ func (s *ApiServer) WriteStorageObjects(ctx context.Context, in *api.WriteStorag
 	ops := make(StorageOpWrites, 0, len(in.GetObjects()))
 	for _, object := range in.GetObjects() {
 		ops = append(ops, &StorageOpWrite{
-			OwnerID: userID,
+			OwnerID: "00000000-0000-0000-0000-000000000000",
 			Object:  object,
 		})
 	}

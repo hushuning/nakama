@@ -17,6 +17,7 @@ package main
 import (
 	"context"
 	"database/sql"
+	"encoding/json"
 	"net/http"
 
 	"github.com/heroiclabs/nakama-common/api"
@@ -179,4 +180,66 @@ func eventSessionStart(ctx context.Context, logger runtime.Logger, evt *api.Even
 
 func eventSessionEnd(ctx context.Context, logger runtime.Logger, evt *api.Event) {
 	logger.Info("session end %v %v", ctx, evt)
+}
+func rpcCreateCharacter(ctx context.Context, logger runtime.Logger, db *sql.DB, nk runtime.NakamaModule, payload string) (string, error) {
+	// 解析客户端传入的 JSON
+	var input struct {
+		Name string `json:"name"`
+	}
+	if err := json.Unmarshal([]byte(payload), &input); err != nil {
+		return "", runtime.NewError("Invalid input", 3)
+	}
+	if input.Name == "" {
+		return "", runtime.NewError("Name is required", 3)
+	}
+
+	// 获取当前用户 ID
+	userID := ctx.Value(runtime.RUNTIME_CTX_USER_ID).(string)
+
+	// 查询该名字是否已存在（所有人共享 key:name）
+	readReq := []*runtime.StorageRead{
+		{
+			Collection: "characters",
+			Key:        input.Name,
+			UserID:     "", // 全局 key，所有用户可读
+		},
+	}
+	records, err := nk.StorageRead(ctx, readReq)
+	if err != nil {
+		return "", runtime.NewError("Storage read failed", 13)
+	}
+	if len(records) > 0 {
+		return "", runtime.NewError("Character name already taken", 9)
+	}
+
+	// 写入角色数据（绑定到用户）
+	value := map[string]interface{}{
+		"name": input.Name,
+		"xp":   0,
+		"gold": 100,
+	}
+	valueJSON, _ := json.Marshal(value)
+	writeReq := []*runtime.StorageWrite{
+		{
+			Collection:      "characters",
+			Key:             input.Name,
+			UserID:          "", // 全局存储（可选）
+			Value:           valueJSON,
+			PermissionRead:  2, // 2 = 公开读
+			PermissionWrite: 0, // 0 = 只有服务器写
+		},
+		{
+			Collection:      "my_characters",
+			Key:             "main",
+			UserID:          userID, // 绑定到当前用户
+			Value:           valueJSON,
+			PermissionRead:  1,
+			PermissionWrite: 0,
+		},
+	}
+	if _, err := nk.StorageWrite(ctx, writeReq); err != nil {
+		return "", runtime.NewError("Failed to save character", 13)
+	}
+
+	return `{"success":true}`, nil
 }

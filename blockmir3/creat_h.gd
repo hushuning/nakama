@@ -72,7 +72,7 @@ func generate_uuid() -> String:
 			uuid += "-"
 	return uuid					
 
-func submit2()->void:		
+func submit()->void:		
 	
 	print("提交创建英雄")
 	print(job)
@@ -84,9 +84,9 @@ func submit2()->void:
 
 	var character_data:Dictionary = attributes[job]["1"]
 	var ca = JSON.stringify(character_data) 
-	var unique_key = generate_uuid()
-	print("uuid",unique_key)
-	var object_write = NakamaWriteStorageObject.new("characters", hero_name.text, 2, 1, ca, "")
+	#var unique_key = generate_uuid()
+	#print("uuid",unique_key)
+	var object_write = NakamaWriteStorageObject.new("newHero", hero_name.text, 2, 1, ca, "")
 
 	#var simple_obj = {
 	#"collection": "test",
@@ -99,49 +99,51 @@ func submit2()->void:
 	var result = await Global.client.write_storage_objects_async(Global.session, [object_write])
 	if result.acks.size() > 0:
 		print("写入成功！共 %d 项" % result.acks.size())
+		print(result)
 		for ack in result.acks:
 			print("保存成功：collection=%s, key=%s" % [ack.collection, ack.key])
 	else:
 		print("没有写入任何数据")
-func create_character(name: String):
-	var payload = "{\"name\":\"剑圣小明\", \"extra_data\":{\"职业\":\"战士\", \"性别\":\"男\", \"等级\":1}}"
-
-	var json = JSON.stringify(payload)
-	var rpc_result = await Global.client.rpc_async(Global.session, "create_character", payload)
-
-	if rpc_result.is_exception():
-		print("RPC failed: ", rpc_result)
-		return
-
-	var result_data = JSON.parse_string(rpc_result.payload)
-	print("RPC Success: ", result_data)
-	
-func submit()->void:		
-	create_character("aabb")
-	return
-	print("提交创建英雄")
-	print(job)
-	print(typeof(attributes))
-	attributes[job]["1"]["level"] = 2
-	attributes[job]["1"]["job"] = job
-	attributes[job]["1"]["sex"] = sex1
-	attributes[job]["1"]["name"] = hero_name.text
-
-	var character_data:Dictionary = attributes[job]["1"]
-	var ca = JSON.stringify(character_data) 
-	var unique_key = generate_uuid()
-	print("uuid",unique_key)
-
-	
-	var result = await Global.client.rpc_async(Global.session,"create_character",ca )
-	if result.acks.size() > 0:
-		print("写入成功！共 %d 项" % result.acks.size())
-		for ack in result.acks:
-			print("保存成功：collection=%s, key=%s" % [ack.collection, ack.key])
-	else:
-		print("没有写入任何数据")
-
-
+		print(result)
+#func create_character(name: String):
+	#var payload = "{\"name\":\"剑圣小明\", \"extra_data\":{\"职业\":\"战士\", \"性别\":\"男\", \"等级\":1}}"
+#
+	#var json = JSON.stringify(payload)
+	#var rpc_result = await Global.client.rpc_async(Global.session, "create_character", payload)
+#
+	#if rpc_result.is_exception():
+		#print("RPC failed: ", rpc_result)
+		#return
+#
+	#var result_data = JSON.parse_string(rpc_result.payload)
+	#print("RPC Success: ", result_data)
+	#
+##func submit()->void:		
+	##create_character("aabb")
+	##return
+	##print("提交创建英雄")
+	##print(job)
+	##print(typeof(attributes))
+	##attributes[job]["1"]["level"] = 2
+	##attributes[job]["1"]["job"] = job
+	##attributes[job]["1"]["sex"] = sex1
+	##attributes[job]["1"]["name"] = hero_name.text
+##
+	##var character_data:Dictionary = attributes[job]["1"]
+	##var ca = JSON.stringify(character_data) 
+	##var unique_key = generate_uuid()
+	##print("uuid",unique_key)
+##
+	##
+	##var result = await Global.client.rpc_async(Global.session,"create_character",ca )
+	##if result.acks.size() > 0:
+		##print("写入成功！共 %d 项" % result.acks.size())
+		##for ack in result.acks:
+			##print("保存成功：collection=%s, key=%s" % [ack.collection, ack.key])
+	##else:
+		##print("没有写入任何数据")
+##
+##
 
 func _on_check_man_pressed() -> void:
 	sex1="man"

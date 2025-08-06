@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://cjxvgileyojfd"]
 
 [ext_resource type="Script" uid="uid://bt2a0jx82jlti" path="res://script/control.gd" id="1_ee4bf"]
-[ext_resource type="Texture2D" uid="uid://ddahavnekrp6d" path="res://asset/submit.png" id="2_62e2m"]
-[ext_resource type="Texture2D" uid="uid://dgyor0rabhnni" path="res://asset/QQ20250727-173751.png" id="2_ee4bf"]
-[ext_resource type="AudioStream" uid="uid://blxnmvctmvia5" path="res://asset/login.mp3" id="3_qtu10"]
+[ext_resource type="Texture2D" uid="uid://dvm4k3sq7fq0n" path="res://asset/submit.png" id="2_62e2m"]
+[ext_resource type="Texture2D" uid="uid://csas4x6x3qej" path="res://asset/QQ20250727-173751.png" id="2_ee4bf"]
+[ext_resource type="AudioStream" uid="uid://7xxqc2dk8d" path="res://asset/login.mp3" id="3_qtu10"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
