@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bp2hqdg5apgjg"]
+
+[ext_resource type="PackedScene" uid="uid://dgg3n4xjneq1k" path="res://Scen/enemy.tscn" id="1_thky8"]
+[ext_resource type="PackedScene" uid="uid://bkyi4mtsybnrk" path="res://Scen/taoist.tscn" id="2_dar7v"]
+
+[node name="war" type="Node2D"]
+
+[node name="Enemy" parent="." instance=ExtResource("1_thky8")]
+
+[node name="taoist" parent="." instance=ExtResource("2_dar7v")]

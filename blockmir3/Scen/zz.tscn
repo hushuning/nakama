@@ -1,0 +1,69 @@
+[gd_scene load_steps=15 format=3 uid="uid://c6mf6le3yyyx4"]
+
+[ext_resource type="Texture2D" uid="uid://buogr37kh26vd" path="res://asset/creat/zz/000022.png" id="1_llh5t"]
+[ext_resource type="Texture2D" uid="uid://ctgita1krcki7" path="res://asset/creat/zz/000023.png" id="2_l4q1n"]
+[ext_resource type="Texture2D" uid="uid://ba16k3hq01aiy" path="res://asset/creat/zz/000024.png" id="3_6xcxf"]
+[ext_resource type="Texture2D" uid="uid://bwety66gk2m3r" path="res://asset/creat/zz/000025.png" id="4_7pqf1"]
+[ext_resource type="Texture2D" uid="uid://ddsxqamtm0qt5" path="res://asset/creat/zz/000026.png" id="5_uktr8"]
+[ext_resource type="Texture2D" uid="uid://cngux2ixkfxvm" path="res://asset/creat/zz/000027.png" id="6_rvf2i"]
+[ext_resource type="Texture2D" uid="uid://l4vkkmm70nfs" path="res://asset/creat/zz/000028.png" id="7_7fmkh"]
+[ext_resource type="Texture2D" uid="uid://b6oj7qoql2yjb" path="res://asset/creat/zz/000029.png" id="8_tn4gl"]
+[ext_resource type="Texture2D" uid="uid://cmr5d0clyd263" path="res://asset/creat/zz/000030.png" id="9_h8hp8"]
+[ext_resource type="Texture2D" uid="uid://de47gy1dlow5e" path="res://asset/creat/zz/000031.png" id="10_en323"]
+[ext_resource type="Texture2D" uid="uid://p32a6sc87dmc" path="res://asset/creat/zz/000032.png" id="11_a3p84"]
+[ext_resource type="Script" uid="uid://bftifwycdek65" path="res://script/zz.gd" id="12_v7si1"]
+[ext_resource type="AudioStream" uid="uid://ci5gjlwiouu53" path="res://asset/creat/zz/100.wav" id="13_rvhla"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u5j04"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("1_llh5t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_l4q1n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_6xcxf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_7pqf1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_uktr8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_rvf2i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_7fmkh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_tn4gl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_h8hp8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_en323")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_a3p84")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="zz" type="AnimatedSprite2D"]
+position = Vector2(646, 360.5)
+scale = Vector2(2.56855, 1.91413)
+sprite_frames = SubResource("SpriteFrames_u5j04")
+autoplay = "default"
+script = ExtResource("12_v7si1")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_rvhla")
+autoplay = true
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]

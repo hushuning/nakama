@@ -57,7 +57,7 @@ func login():
 	#Global._api_client = _api_client
 	Global.is_login = true
 	Global.username = session.username
-	get_tree().change_scene_to_file("res://creat_h.tscn")
+	get_tree().change_scene_to_file("res://Scen/creat_h.tscn")
 #func connect_to_nakama():
 	#var options = NakamaAuthOptions.new()
 	#options.username = "test_user"  # 设置用户名

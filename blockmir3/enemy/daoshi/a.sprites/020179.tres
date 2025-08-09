@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://dm5hw3iakhg3c"]
+
+[ext_resource type="Texture2D" uid="uid://dmnq3n8tlnqg3" path="res://enemy/daoshi/a.png" id="1_wa55y"]
+
+[resource]
+atlas = ExtResource("1_wa55y")
+region = Rect2(76, 592, 68, 76)

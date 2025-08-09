@@ -23,3 +23,7 @@ Global="*res://script/Global.gd"
 [display]
 
 window/size/viewport_width=1284
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/codeandweb.texturepacker/plugin.cfg")
