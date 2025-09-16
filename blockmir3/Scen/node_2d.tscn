@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmmp56nkrkdem"]
+
+[ext_resource type="SpriteFrames" path="res://enemy/chongwu/SpriteFrames.tres" id="1_i044w"]
+[ext_resource type="Texture2D" path="res://enemy/chongwu/sprite_sheet.png" id="2_2s8gx"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(331, 258)
+sprite_frames = ExtResource("1_i044w")
+animation = &"beAttaLeftUp"
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": true,
+"output_section": true,
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"scale": "1.0",
+"should_round_fps": true,
+"slice": "",
+"source": "res://enemy/召唤神兽/000350.ase",
+"source_uid": 7818610325902931409
+}
+metadata/_aseprite_wizard_source_file_hash_ = "c5a48a2981e2c82ee5c744c0326c5b43"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1240, 151)
+texture = ExtResource("2_2s8gx")
+region_enabled = true
+region_rect = Rect2(9648, 112, 1408, 272)
+region_filter_clip_enabled = true

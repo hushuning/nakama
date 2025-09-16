@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://4s13sve2pthv"]
+
+[ext_resource type="SpriteFrames" uid="uid://c01atx0yxxpbp" path="res://enemy/chongwu/sprite_sheet.tres" id="1_ewd82"]
+[ext_resource type="Script" uid="uid://dn23325lxcl7w" path="res://Scen/sprite_2d.gd" id="2_ra1nl"]
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(191, 196)
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-21, -49)
+sprite_frames = ExtResource("1_ewd82")
+animation = &"kRight"
+frame_progress = 0.280732
+script = ExtResource("2_ra1nl")

@@ -1,7 +1,8 @@
-[gd_scene load_steps=137 format=3 uid="uid://bkyi4mtsybnrk"]
+[gd_scene load_steps=143 format=3 uid="uid://bkyi4mtsybnrk"]
 
 [ext_resource type="Script" uid="uid://us5roy6e680y" path="res://script/taoist.gd" id="1_hfjvy"]
 [ext_resource type="Texture2D" uid="uid://dmoynf4w8ed0f" path="res://enemy/kulouwang/000160.png" id="2_djst8"]
+[ext_resource type="AudioStream" uid="uid://bs2qte8oj25vh" path="res://asset/脚步声.wav" id="2_h6v3g"]
 [ext_resource type="Texture2D" uid="uid://bn13ah7ldqs06" path="res://enemy/daoshi/020024.png" id="2_msa0a"]
 [ext_resource type="Texture2D" uid="uid://c5jgg1ifap7hk" path="res://enemy/daoshi/020048.png" id="2_w3kbg"]
 [ext_resource type="Texture2D" uid="uid://begs1wssmdygx" path="res://enemy/daoshi/020049.png" id="3_fmqkl"]
@@ -97,9 +98,14 @@
 [ext_resource type="Texture2D" uid="uid://ccwex86tihudo" path="res://enemy/daoshi/a.sprites/020147.tres" id="89_0vk11"]
 [ext_resource type="Texture2D" uid="uid://ci38us8waqgre" path="res://enemy/daoshi/a.sprites/020148.tres" id="90_ea37a"]
 [ext_resource type="Texture2D" uid="uid://cw5t1adtxkv84" path="res://enemy/daoshi/a.sprites/020149.tres" id="91_40pi8"]
+[ext_resource type="Script" uid="uid://b08p75vupy25w" path="res://Scen/joystick_base.gd" id="99_e41yh"]
+[ext_resource type="Texture2D" uid="uid://c3y53g3spjyr0" path="res://assets/skill/000560.png" id="100_m1ska"]
+[ext_resource type="Texture2D" uid="uid://cj7iatbqomtul" path="res://assets/skill/000561.png" id="101_s3lrl"]
+[ext_resource type="Texture2D" uid="uid://bhudt4al3yh6s" path="res://assets/skill/000562.png" id="102_v7oku"]
+[ext_resource type="Texture2D" uid="uid://koxots88m2rs" path="res://assets/skill/000566.png" id="103_fhwrb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lv0vf"]
-size = Vector2(47.5, 85)
+size = Vector2(38, 58)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6fu1e"]
 animations = [{
@@ -1098,14 +1104,18 @@ states/move/position = Vector2(392.5, 57.5)
 
 [node name="taoist" type="CharacterBody2D"]
 script = ExtResource("1_hfjvy")
+joystick_path = NodePath("CanvasLayer/JoystickBase")
+
+[node name="脚步声" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_h6v3g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(222.25, 130.5)
+position = Vector2(221, 122)
 shape = SubResource("RectangleShape2D_lv0vf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(244.25, 126.375)
-scale = Vector2(1.17969, 0.896667)
+position = Vector2(244.25, 137.048)
+scale = Vector2(1.17969, 1.19313)
 sprite_frames = SubResource("SpriteFrames_6fu1e")
 animation = &"keep_down"
 autoplay = "run_left"
@@ -1123,3 +1133,42 @@ tree_root = SubResource("AnimationNodeStateMachine_nm7an")
 anim_player = NodePath("../AnimationPlayer")
 parameters/idle/blend_position = Vector2(0.00282216, -0.765668)
 parameters/move/blend_position = Vector2(0.213547, 0.378747)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(179, 69)
+scale = Vector2(1, 0.983037)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 5
+
+[node name="JoystickBase" type="ColorRect" parent="CanvasLayer"]
+custom_minimum_size = Vector2(150, 150)
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+script = ExtResource("99_e41yh")
+
+[node name="JoystickKnob" type="ColorRect" parent="CanvasLayer/JoystickBase"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = -117.0
+offset_right = 150.0
+offset_bottom = -2.0
+grow_vertical = 0
+
+[node name="000560" type="TextureButton" parent="CanvasLayer"]
+offset_left = 1122.0
+offset_top = 513.0
+offset_right = 1154.0
+offset_bottom = 543.0
+scale = Vector2(1.805, 1.84667)
+texture_normal = ExtResource("100_m1ska")
+texture_pressed = ExtResource("101_s3lrl")
+texture_hover = ExtResource("102_v7oku")
+texture_disabled = ExtResource("103_fhwrb")

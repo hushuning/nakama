@@ -15,6 +15,10 @@ run/main_scene="uid://cjxvgileyojfd"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
+[aseprite_importers]
+
+aseprite_executable_path="D:/Aseprite-v1.3.15.2-Windows/aseprite.exe"
+
 [autoload]
 
 Nakama="*res://addons/com.heroiclabs.nakama/Nakama.gd"
@@ -26,4 +30,9 @@ window/size/viewport_width=1284
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/codeandweb.texturepacker/plugin.cfg")
+enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg")
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method="mobile"

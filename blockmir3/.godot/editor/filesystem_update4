@@ -1,6 +1,3 @@
-res://Scen/taoist.tscn
-res://Scen/control.tscn
-res://Scen/creat_h.tscn
-res://Scen/enemy.tscn
-res://Scen/war.tscn
-res://script/taoist.gd
+res://Scen/joystick_base.gd
+res://Scen/sprite_2d.gd
+res://Scen/cscs.tscn

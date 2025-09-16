@@ -1,0 +1,333 @@
+[gd_scene load_steps=59 format=3 uid="uid://b06tuvwnjd24d"]
+
+[ext_resource type="TileSet" uid="uid://bieidvlj4o3i7" path="res://data/new_tile_set.tres" id="1_usi53"]
+[ext_resource type="Script" uid="uid://caadcx830wk4y" path="res://tile_map_layer.gd" id="2_vs5lw"]
+[ext_resource type="Texture2D" uid="uid://di25w6mpd051g" path="res://data/0120.png" id="3_5gcau"]
+[ext_resource type="PackedScene" uid="uid://bkyi4mtsybnrk" path="res://Scen/taoist.tscn" id="4_357kl"]
+[ext_resource type="Texture2D" uid="uid://cm463eacy1aee" path="res://asset/NPC-4.sprites/npc/000421.tres" id="5_oa4me"]
+[ext_resource type="Script" uid="uid://bggnlsid6h7tr" path="res://Scen/宠物管理员.gd" id="5_omj3a"]
+[ext_resource type="PackedScene" uid="uid://dk4qwctnimswf" path="res://Scen/npc_popup.tscn" id="6_4x22f"]
+[ext_resource type="Texture2D" uid="uid://b8gsiilsuj485" path="res://asset/NPC-4.sprites/npc/000422.tres" id="6_gb7kq"]
+[ext_resource type="Texture2D" uid="uid://dgphisaxitxdg" path="res://asset/NPC-4.sprites/npc/000423.tres" id="7_u6r5h"]
+[ext_resource type="Texture2D" uid="uid://c165ghrpg2bna" path="res://asset/NPC-4.sprites/npc/000450.tres" id="12_w5vbd"]
+[ext_resource type="Texture2D" uid="uid://2q44oy1bkxbp" path="res://asset/NPC-4.sprites/npc/000451.tres" id="13_rpm08"]
+[ext_resource type="Texture2D" uid="uid://brpe1s337auy3" path="res://asset/NPC-4.sprites/npc/000453.tres" id="14_o34dq"]
+[ext_resource type="Texture2D" uid="uid://dcqx0col15oyx" path="res://asset/NPC-4.sprites/npc/000454.tres" id="15_s8u2f"]
+[ext_resource type="Texture2D" uid="uid://cesd3fxk1gpiq" path="res://asset/NPC-4.sprites/npc/000456.tres" id="16_3nml4"]
+[ext_resource type="Texture2D" uid="uid://cqjumviij8o2e" path="res://asset/NPC-4.sprites/npc/000457.tres" id="17_ebson"]
+[ext_resource type="Script" uid="uid://1iwmam6avkj5" path="res://Scen/链上管理员.gd" id="17_gb7kq"]
+[ext_resource type="Texture2D" uid="uid://k0nojjip5xua" path="res://asset/NPC-4.sprites/npc/000458.tres" id="18_jea4g"]
+[ext_resource type="Texture2D" uid="uid://th1uckv6evdh" path="res://asset/NPC-4.sprites/npc/000181.tres" id="18_u6r5h"]
+[ext_resource type="Texture2D" uid="uid://beg4q3cmdp8mc" path="res://asset/NPC-4.sprites/npc/000459.tres" id="19_sflqr"]
+[ext_resource type="Texture2D" uid="uid://cnaj5gvrn740" path="res://asset/NPC-4.sprites/npc/000182.tres" id="19_ygsce"]
+[ext_resource type="Texture2D" uid="uid://d0rq3wjc7earw" path="res://asset/NPC-4.sprites/npc/000183.tres" id="20_yacv4"]
+[ext_resource type="Texture2D" uid="uid://blwaliijkmjmi" path="res://asset/NPC-4.sprites/npc/000190.tres" id="21_qs58n"]
+[ext_resource type="Texture2D" uid="uid://wbw5fsg44fld" path="res://asset/NPC-4.sprites/npc/000191.tres" id="22_4x22f"]
+[ext_resource type="Texture2D" uid="uid://b86xwdtjx447x" path="res://asset/NPC-4.sprites/npc/000192.tres" id="23_rt5mu"]
+[ext_resource type="Texture2D" uid="uid://cbbquchgtyna7" path="res://asset/NPC-4.sprites/npc/000193.tres" id="24_7porh"]
+[ext_resource type="Texture2D" uid="uid://tp6wff2as40x" path="res://asset/NPC-4.sprites/npc/000201.tres" id="25_cac81"]
+[ext_resource type="Texture2D" uid="uid://cu4legf25jbqo" path="res://asset/NPC-4.sprites/npc/000202.tres" id="26_66s00"]
+[ext_resource type="Texture2D" uid="uid://d3kbb77pciio6" path="res://asset/NPC-4.sprites/npc/000203.tres" id="27_o4472"]
+[ext_resource type="Texture2D" uid="uid://dflpbv72bw2bj" path="res://asset/NPC-4.sprites/npc/000210.tres" id="28_5tp0s"]
+[ext_resource type="Texture2D" uid="uid://kh5yixj4uku4" path="res://asset/NPC-4.sprites/npc/000211.tres" id="29_jmywk"]
+[ext_resource type="Texture2D" uid="uid://fi81qt32eimi" path="res://asset/NPC-4.sprites/npc/000214.tres" id="30_66w5u"]
+[ext_resource type="Texture2D" uid="uid://2nfn5jv2os4b" path="res://asset/NPC-4.sprites/npc/000218.tres" id="31_2gcj0"]
+[ext_resource type="Texture2D" uid="uid://mww7tsqutjpp" path="res://asset/NPC-4.sprites/npc/000219.tres" id="32_habhe"]
+[ext_resource type="Texture2D" uid="uid://djljomrhc43ty" path="res://asset/NPC-4.sprites/npc/000220.tres" id="33_wectu"]
+[ext_resource type="Texture2D" uid="uid://db8mlvddbkdrk" path="res://asset/NPC-4.sprites/npc/000221.tres" id="34_ojjwu"]
+[ext_resource type="Texture2D" uid="uid://c0wgfqgt2mmj2" path="res://asset/NPC-4.sprites/npc/000223.tres" id="35_24aed"]
+[ext_resource type="Texture2D" uid="uid://qwxpm8mo2u3n" path="res://asset/NPC-4.sprites/npc/000224.tres" id="36_j38el"]
+[ext_resource type="Texture2D" uid="uid://bps37k075ndub" path="res://asset/NPC-4.sprites/npc/000228.tres" id="37_rk5d2"]
+[ext_resource type="Texture2D" uid="uid://csk1dtsffoit5" path="res://asset/NPC-4.sprites/npc/000230.tres" id="38_tclui"]
+[ext_resource type="Texture2D" uid="uid://b2p3oo07lxx6d" path="res://asset/NPC-4.sprites/npc/000231.tres" id="39_oumop"]
+[ext_resource type="Texture2D" uid="uid://cjm8f8vqfiwpc" path="res://asset/NPC-4.sprites/npc/000232.tres" id="40_uawfk"]
+[ext_resource type="Texture2D" uid="uid://ci2q8mklp0ypb" path="res://asset/NPC-4.sprites/npc/000233.tres" id="41_qyas8"]
+[ext_resource type="Texture2D" uid="uid://gxyfkacy3ny3" path="res://asset/NPC-4.sprites/npc/000234.tres" id="42_jl0rb"]
+[ext_resource type="Texture2D" uid="uid://cip7rmk61hhn5" path="res://asset/NPC-4.sprites/npc/000235.tres" id="43_nxwkd"]
+[ext_resource type="Texture2D" uid="uid://c8wbrchb0c8it" path="res://asset/NPC-4.sprites/npc/000236.tres" id="44_dek8w"]
+[ext_resource type="Texture2D" uid="uid://d2mbjnx0y87ll" path="res://asset/NPC-4.sprites/npc/000237.tres" id="45_bd256"]
+[ext_resource type="Texture2D" uid="uid://dsbkp7c56xhgu" path="res://asset/NPC-4.sprites/npc/000238.tres" id="46_lxso7"]
+[ext_resource type="Texture2D" uid="uid://dcloubenr3ay" path="res://asset/NPC-4.sprites/npc/000239.tres" id="47_0b1i2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p5pve"]
+size = Vector2(1265.46, 154.842)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_urblq"]
+size = Vector2(623, 373.125)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iw27f"]
+size = Vector2(676.285, 90)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_71pa8"]
+size = Vector2(155, 35.1411)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2jgu5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_oa4me")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_gb7kq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_u6r5h")
+}],
+"loop": true,
+"name": &"npc1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_w5vbd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_rpm08")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_o34dq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_s8u2f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_3nml4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_ebson")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_jea4g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_sflqr")
+}],
+"loop": true,
+"name": &"npc1_2",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oa4me"]
+radius = 14.0
+height = 82.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qs58n"]
+size = Vector2(64, 95)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kggp6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_u6r5h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_ygsce")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_yacv4")
+}],
+"loop": true,
+"name": &"npc1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("21_qs58n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_4x22f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_rt5mu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_7porh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_cac81")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_66s00")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_o4472")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_5tp0s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_jmywk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_66w5u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_2gcj0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_habhe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_wectu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_ojjwu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_24aed")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_j38el")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_rk5d2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_tclui")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_oumop")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_uawfk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_qyas8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_jl0rb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_nxwkd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_dek8w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_bd256")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_lxso7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_0b1i2")
+}],
+"loop": true,
+"name": &"npc1_2",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7mnv1"]
+radius = 36.0
+height = 92.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4x22f"]
+size = Vector2(69, 111)
+
+[node name="map" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+position = Vector2(482, 309)
+tile_set = ExtResource("1_usi53")
+script = ExtResource("2_vs5lw")
+
+[node name="0120" type="Sprite2D" parent="."]
+position = Vector2(731, 226)
+scale = Vector2(2.07716, 1.97729)
+texture = ExtResource("3_5gcau")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Node2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D"]
+position = Vector2(329, 595)
+rotation = -2.57686
+shape = SubResource("RectangleShape2D_p5pve")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Node2D/StaticBody2D"]
+position = Vector2(897.697, 92.2248)
+rotation = -2.57686
+shape = SubResource("RectangleShape2D_p5pve")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Node2D/StaticBody2D"]
+position = Vector2(1168.5, 1054.25)
+shape = SubResource("RectangleShape2D_urblq")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Node2D/StaticBody2D"]
+position = Vector2(1730, 681.438)
+shape = SubResource("RectangleShape2D_urblq")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Node2D/StaticBody2D"]
+position = Vector2(524.683, 333.453)
+rotation = -0.513234
+shape = SubResource("RectangleShape2D_iw27f")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Node2D/StaticBody2D"]
+position = Vector2(1197.25, 517.098)
+rotation = 0.673973
+shape = SubResource("RectangleShape2D_71pa8")
+
+[node name="taoist" parent="." instance=ExtResource("4_357kl")]
+position = Vector2(447, 406)
+
+[node name="宠物管理员" type="CharacterBody2D" parent="."]
+position = Vector2(786, 340)
+input_pickable = true
+script = ExtResource("5_omj3a")
+popup_scene = ExtResource("6_4x22f")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="宠物管理员"]
+z_index = 1
+position = Vector2(-6.75003, -5.99999)
+scale = Vector2(1.25, 1.09859)
+sprite_frames = SubResource("SpriteFrames_2jgu5")
+animation = &"npc1_2"
+autoplay = "npc1"
+
+[node name="Label" type="Label" parent="宠物管理员"]
+offset_left = -52.0
+offset_top = -67.0
+offset_right = -12.0
+offset_bottom = -44.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="宠物管理员"]
+z_index = 1
+position = Vector2(-22, -3)
+shape = SubResource("CapsuleShape2D_oa4me")
+
+[node name="HoverArea" type="Area2D" parent="宠物管理员"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="宠物管理员/HoverArea"]
+position = Vector2(-15, -22)
+shape = SubResource("RectangleShape2D_qs58n")
+
+[node name="链上管理员" type="CharacterBody2D" parent="."]
+position = Vector2(584, 513)
+input_pickable = true
+script = ExtResource("17_gb7kq")
+popup_scene = ExtResource("6_4x22f")
+
+[node name="Label" type="Label" parent="链上管理员"]
+offset_left = 5.0
+offset_top = -165.0
+offset_right = 56.0
+offset_bottom = -142.0
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="链上管理员"]
+position = Vector2(54, -99.25)
+scale = Vector2(1.28814, 1.36301)
+sprite_frames = SubResource("SpriteFrames_kggp6")
+animation = &"npc1_2"
+autoplay = "npc1"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="链上管理员"]
+position = Vector2(39, -102)
+shape = SubResource("CapsuleShape2D_7mnv1")
+
+[node name="HoverArea" type="Area2D" parent="链上管理员"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="链上管理员/HoverArea"]
+position = Vector2(43, -103)
+shape = SubResource("RectangleShape2D_4x22f")
